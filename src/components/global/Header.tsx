@@ -11,7 +11,7 @@ export default function Header() {
           ramadan<span className="text-primary font-light">daily.</span>
         </Link>
         <nav className="flex items-center gap-4 max-md:gap-2">
-          <Link href="/login" className={buttonVariants({ size: "sm" })}>
+          <Link href="/auth" className={buttonVariants({ size: "sm" })}>
             <LogIn className="w-4 h-4 mr-2" /> Login
           </Link>
           <ModeToggle />
