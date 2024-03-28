@@ -22,23 +22,32 @@ export default function Auth() {
       <TabsContent value="login">
         <Card>
           <CardHeader>
-            <CardTitle>Login</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-center">Login to continue</CardTitle>
+            <CardDescription className="text-center">
               You have to Login first to continue using the app.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" />
+            <Input id="email" placeholder="email@example.com" />
+            <Input id="password" type="password" placeholder="password" />
+            <Button className="w-full">Login</Button>
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t"></span>
+              </div>
+              <div className="relative flex text-sm justify-center">
+                <span className="bg-background px-2 text-muted-foreground">
+                  Or continue with
+                </span>
+              </div>
             </div>
-            <div className="space-y-1">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" />
-            </div>
+            <Button variant={"outline"}>< Google</Button>
           </CardContent>
-          <CardFooter>
-            <Button>Login</Button>
+          <CardFooter className="text-center">
+            <p className="text-center text-sm text-muted-foreground">
+              By clicking continue, you agree to our Terms of Service and
+              Privacy Policy.
+            </p>
           </CardFooter>
         </Card>
       </TabsContent>
