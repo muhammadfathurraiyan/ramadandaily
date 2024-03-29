@@ -1,4 +1,6 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,9 +14,18 @@ export default function Home() {
         Stay organized, focused, and spiritually connected throughout the holy
         month with our intuitive tools.
       </p>
-      <Button size={"lg"} className="text-base mt-4 w-fit">
+      <Link
+        href="/auth"
+        className={buttonVariants({
+          className: "md:text-base mt-4 w-fit group",
+        })}
+      >
         Get Started
-      </Button>
+        <ArrowRight
+          size={16}
+          className="ml-2 group-hover:translate-x-1 transition-all"
+        />
+      </Link>
     </main>
   );
 }
