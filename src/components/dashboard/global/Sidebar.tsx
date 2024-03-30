@@ -1,5 +1,6 @@
 "use client";
 import { buttonVariants } from "@/components/ui/button";
+import useDate from "@/lib/customHooks/useDate";
 import {
   Award,
   CalendarRange,
@@ -12,10 +13,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
   const pathName = usePathname();
+  const [isClient, setIsClient] = useState(false);
+
+  const { time, fullDate } = useDate();
   const navItems = [
     {
       name: "dashboard",
@@ -61,28 +65,41 @@ export default function Sidebar() {
       icon: CircleHelp,
     },
   ];
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
-    <aside className="h-full p-6">
-      <nav className="grid gap-1">
-        {navItems.map((item, index) => (
-          <Link
-            key={index}
-            href={item.url}
-            className={buttonVariants({
-              variant: "ghost",
-              className: `${
-                pathName === item.url && "bg-muted"
-              } justify-between`,
-            })}
-          >
-            <span className="flex items-center gap-2 capitalize">
-              <item.icon size={20} />
-              {item.name}
-            </span>
-            <span>{item.notification}</span>
-          </Link>
-        ))}
-      </nav>
-    </aside>
+    <>
+      <div className="p-6 border-b">
+        <h1 className="text-2xl font-bold">{isClient && time}</h1>
+        <div className="text-xs text-muted-foreground">
+          <p>Today is {isClient && fullDate}.</p>
+        </div>
+      </div>
+      <aside className="h-full p-6 max-md:p-4 space-y-4">
+        <nav className="grid gap-1">
+          {navItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.url}
+              className={buttonVariants({
+                variant: "ghost",
+                className: `${
+                  pathName === item.url && "bg-muted"
+                } justify-between`,
+              })}
+            >
+              <span className="flex items-center gap-2 capitalize">
+                <item.icon size={20} />
+                {item.name}
+              </span>
+              <span>{item.notification}</span>
+            </Link>
+          ))}
+        </nav>
+      </aside>
+    </>
   );
 }

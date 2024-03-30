@@ -9,7 +9,7 @@ export default function Header() {
   const pathName = usePathname();
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container max-md:px-4 flex py-4 max-w-screen-2xl items-center justify-between">
+      <div className="px-6 py-4 max-md:px-4 max-w-screen-2xl flex items-center justify-between">
         <Link href="/" className="text-3xl font-semibold">
           ramadan<span className="text-primary font-light">daily.</span>
         </Link>

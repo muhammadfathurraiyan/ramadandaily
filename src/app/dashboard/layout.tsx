@@ -21,7 +21,7 @@ export default function DashBoardLayout({
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel defaultSize={75}>
-        <ScrollArea className="flex h-screen items-center justify-center p-6">
+        <ScrollArea className="flex h-screen items-center justify-center p-6 max-md:p-4">
           {children}
         </ScrollArea>
       </ResizablePanel>
