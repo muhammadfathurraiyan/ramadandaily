@@ -32,3 +32,5 @@ Route:
 8. "/dashboard/prayer"
 9. "/dashboard/insight"
 10. "/dashboard/comunity"
+
+etc
